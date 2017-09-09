@@ -14,7 +14,7 @@ class IFTTTApi {
 
         const val BASE_URL: String = "http://hackathon.cristi.me/api/"
         const val ADDED_TO_WISHLIST: String = "wishlist/added"
-        const val ADDED_TO_CART: String = "order/placed"
+        const val ADDED_TO_CART: String = "cart/added"
         const val PURCHASE_FINISHED: String = "order/placed"
 
         @JvmStatic

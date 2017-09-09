@@ -12,19 +12,24 @@ class IFTTTApi {
 
     companion object {
 
+        const val BASE_URL: String = "http://hackathon.cristi.me/api/"
+        const val ADDED_TO_WISHLIST: String = "wishlist/added"
+        const val ADDED_TO_CART: String = "order/placed"
+        const val PURCHASE_FINISHED: String = "order/placed"
+
         @JvmStatic
         fun productAddedToWishList(context: Context, productJson: JSONObject, successListener:Response.Listener<JSONObject>, errorListener:Response.ErrorListener) {
-            makeRequestWithVolley(context, "http://hackathon.cristi.me/api/wishlist/added", productJson, successListener, errorListener)
+            makeRequestWithVolley(context, BASE_URL + ADDED_TO_WISHLIST, productJson, successListener, errorListener)
         }
 
         @JvmStatic
         fun productAddedToCart(context: Context, productJson: JSONObject, successListener:Response.Listener<JSONObject>, errorListener:Response.ErrorListener) {
-            makeRequestWithVolley(context, "http://hackathon.cristi.me/api/cart/added", productJson, successListener, errorListener)
+            makeRequestWithVolley(context, BASE_URL + ADDED_TO_CART, productJson, successListener, errorListener)
         }
 
         @JvmStatic
         fun purchaseFinished(context: Context, cartJson: JSONObject, successListener:Response.Listener<JSONObject>, errorListener:Response.ErrorListener) {
-            makeRequestWithVolley(context, "http://hackathon.cristi.me/api/order/placed", cartJson, successListener, errorListener)
+            makeRequestWithVolley(context, BASE_URL + PURCHASE_FINISHED, cartJson, successListener, errorListener)
         }
 
         private fun makeRequestWithVolley(context: Context, url: String, payload:JSONObject, successListener:Response.Listener<JSONObject>, errorListener:Response.ErrorListener) {
